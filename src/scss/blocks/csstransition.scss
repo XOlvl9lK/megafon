@@ -1,0 +1,35 @@
+.options-enter {
+  transform: translateY(10px);
+  opacity: 0;
+}
+.options-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: .2s ease;
+}
+.options-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+.options-exit-active {
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: .2s ease;
+}
+
+
+
+.error-enter {
+  transform: translateY(160px);
+}
+.error-enter-active {
+  transform: translateY(0);
+  transition: .2s ease;
+}
+.error-exit {
+  transform: translateY(0);
+}
+.error-exit-active {
+  transform: translateY(160px);
+  transition: .2s ease;
+}

@@ -1,9 +1,14 @@
 import React from 'react';
+import Math from "./math/Math.jsx";
+import Header from "./header/Header.jsx";
 
 const App = () => {
 
     return (
-            <h1>Hello world</h1>
+        <>
+            <Header />
+            <Math />
+        </>
     );
 };
 
