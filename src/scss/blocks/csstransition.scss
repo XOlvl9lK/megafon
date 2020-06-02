@@ -33,3 +33,20 @@
   transform: translateY(160px);
   transition: .2s ease;
 }
+
+
+
+.egg-enter {
+  opacity: 0;
+}
+.egg-enter-active {
+  opacity: 1;
+  transition: .3s ease;
+}
+.egg-exit {
+  opacity: 1;
+}
+.egg-exit-active {
+  opacity: 0;
+  transition: .3s ease;
+}

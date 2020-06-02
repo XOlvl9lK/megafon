@@ -3,7 +3,7 @@ import Input from "./Input.jsx";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import ErrorModal from "./ErrorModal.jsx";
 
-const View = ({
+const ViewMegafon = ({
                   handleInputChange,
                   before,
                   after,
@@ -18,15 +18,14 @@ const View = ({
     let amountCrouch;
 
     if (amount) {
-        amountCrouch = amount.map(amountItem => (
-            <p key={amountItem}>{amountItem}</p>
-        ));
+        amountCrouch = amount.map((amountItem, index) => {
+            if (index === 0 || index === 1) {
+                return <p key={amountItem + index}>{parseFloat(amountItem)}</p>
+            } else {
+                return <p key={amountItem + index}>{parseFloat(amountItem).toFixed(5)}</p>
+            }
+        });
     }
-
-    function log() {
-        console.log(result);
-    }
-
 
     return (
         <div className="view container">
@@ -65,10 +64,10 @@ const View = ({
 
                     <TransitionGroup>
                         {result && (
-                            result.map((resultItem) => {
+                            result.map((resultItem, index) => {
                                 return (
-                                    <CSSTransition key={resultItem.calculatedBefore} classNames="options" timeout={200}>
-                                        <div onClick={log} className="table-body-calculate">
+                                    <CSSTransition key={resultItem.calculatedBefore + index} classNames="options" timeout={200}>
+                                        <div className="table-body-calculate">
                                             <p>{resultItem.calculatedBefore}</p>
                                             <p>{resultItem.calculatedAfter}</p>
                                             <p>{resultItem.differenceG}</p>
@@ -87,15 +86,15 @@ const View = ({
                         <p>Sum</p>
                     </div>
 
-                    {/*<TransitionGroup>*/}
-                    {/*    {amount && (*/}
-                    {/*        <CSSTransition classNames="options" timeout={200}>*/}
-                    {/*            <div className="amount-calculate">*/}
-                    {/*                {amountCrouch}*/}
-                    {/*            </div>*/}
-                    {/*        </CSSTransition>*/}
-                    {/*    )}*/}
-                    {/*</TransitionGroup>*/}
+                    <TransitionGroup>
+                        {amount && (
+                            <CSSTransition classNames="options" timeout={200}>
+                                <div className="amount-calculate">
+                                    {amountCrouch}
+                                </div>
+                            </CSSTransition>
+                        )}
+                    </TransitionGroup>
 
                 </div>
 
@@ -115,4 +114,4 @@ const View = ({
     );
 };
 
-export default View;
+export default ViewMegafon;

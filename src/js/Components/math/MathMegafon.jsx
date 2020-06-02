@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import View from "./View.jsx";
+import ViewMegafon from "../view/ViewMegafon.jsx";
 
-const Math = () => {
+
+const MathMegafon = () => {
     const [ before, setBefore ] = useState({
         ugw1: '',
         ugw2: '',
@@ -62,7 +63,7 @@ const Math = () => {
             }
         }
 
-        amountPercentage = (100 - ((amountAfter * 100) / amountBefore)).toFixed(5);
+        amountPercentage = (100 - ((+amountAfter * 100) / +amountBefore));
 
         amountResult.push(amountBefore, amountAfter, amountCalculatedBefore, amountCalculatedAfter, amountDifferenceG, amountDifferenceM, amountPercentage);
 
@@ -79,6 +80,7 @@ const Math = () => {
     function handleClick() {
         if (result) {
             setResult('');
+            setAmount('');
             setTimeout(calculateResult, 200);
         } else {
             calculateResult();
@@ -115,7 +117,7 @@ const Math = () => {
     }
 
     return (
-        <View
+        <ViewMegafon
             handleInputChange={handleInputChange}
             before={before}
             after={after}
@@ -131,4 +133,4 @@ const Math = () => {
     );
 };
 
-export default Math;
+export default MathMegafon;
