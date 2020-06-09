@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ViewYota from "../view/ViewYota.jsx";
 import { useMath } from "../../hooks/math.hook";
 
